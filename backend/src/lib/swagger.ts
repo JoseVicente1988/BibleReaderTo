@@ -1,4 +1,4 @@
-import swaggerUi from "swagger-ui-express";
+import * as swaggerUi from "swagger-ui-express";
 import { Router } from "express";
 
 export const openapiDoc = {
@@ -10,8 +10,8 @@ export const openapiDoc = {
       get: {
         summary: "Book meta",
         parameters: [{ name: "id", in: "path", required: true }],
-        responses: { "200": { description: "OK" } },
-      },
+        responses: { "200": { description: "OK" } }
+      }
     },
     "/api/book/{id}/read": {
       get: {
@@ -19,14 +19,14 @@ export const openapiDoc = {
         parameters: [
           { name: "id", in: "path", required: true },
           { name: "offset", in: "query" },
-          { name: "limit", in: "query" },
+          { name: "limit", in: "query" }
         ],
-        responses: { "200": { description: "OK" } },
-      },
-    },
-  },
+        responses: { "200": { description: "OK" } }
+      }
+    }
+  }
 };
 
 export function mountSwagger(r: Router) {
-  r.use("/docs", swaggerUi.serve, swaggerUi.setup(openapiDoc as any));
+  r.use("/docs", (swaggerUi as any).serve, (swaggerUi as any).setup(openapiDoc as any));
 }

@@ -1,4 +1,4 @@
-import { BibleProvider, Book, ReadResponse, Verse } from "../../lib/types";
+import type { BibleProvider, Book, ReadResponse, Verse } from "../../lib/types.js";
 
 const MOCK_BOOK: Book = { id: "GEN", name: "Genesis", chapters: 50 };
 const MOCK_VERSES: Verse[] = Array.from({ length: 30 }).map((_, i) => ({
